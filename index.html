@@ -9,14 +9,28 @@
     <script>
       var windowPortal = document.getElementById("windowPortal");
       
-      window.addEventListener("message", (event) => {
-        if (event.origin !== windowPortal.data)
-          if (event.origin !== "http://athdot.tk")
-            alert("I got a different message from: " + event.origin + ", which is not " + windowPortal.data);
-          return;
+      if (window.addEventListener) {
+        window.addEventListener("message", onMessage, false);        
+      } 
+      else if (window.attachEvent) {
+        window.attachEvent("onmessage", onMessage, false);
+      }
 
-        alert("I got a message!");
-      }, false);
+      function onMessage(event) {
+        // Check sender origin to be trusted
+        if (event.origin !== windowPortal.data) return;
+
+        var data = event.data;
+
+        if (typeof(window[data.func]) == "function") {
+          window[data.func].call(null, data.message);
+        }
+      }
+
+      // Function to be called from iframe
+      function parentFunc(message) {
+        alert(message);
+      }
     </script>
   </body>
 </html>
