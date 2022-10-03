@@ -1,39 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script>
-      var windowPortal = "https://3pd9xoiuya.execute-api.us-west-2.amazonaws.com/default/latinDictServer"; //document.getElementById("windowPortal");
-
-      if (window.addEventListener) {
-        window.addEventListener("message", onMessage, false);        
-      } 
-      else if (window.attachEvent) {
-        window.attachEvent("onmessage", onMessage, false);
-      }
-
-      function onMessage(event) {
-        // Check sender origin to be trusted
-        if (event.origin !== windowPortal) return;
-
-        var data = event.data;
-
-        if (typeof(window[data.func]) == "function") {
-          window[data.func].call(null, data.message);
-        }
-      }
-
-      // Function to be called from iframe
-      function parentFunc(message) {
-        alert(message);
-      }
-    </script>
-  </head>
   <body>
     <!-- Export to AWS API Serverless Instance -->
     <object id="windowPortal" data="https://3pd9xoiuya.execute-api.us-west-2.amazonaws.com/default/latinDictServer"
       style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh;"
       type="text/html">
      </object>
-    
   </body>
 </html>
