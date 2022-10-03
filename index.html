@@ -11,7 +11,7 @@
       
       window.addEventListener("message", (event) => {
         if (event.origin !== windowPortal.data)
-          if (evemt.origin !== "http://athdot.tk")
+          if (event.origin !== "http://athdot.tk")
             alert("I got a different message from: " + event.origin + ", which is not " + windowPortal.data);
           return;
 
