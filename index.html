@@ -12,8 +12,16 @@
       let parameterList = (window.location.pathname + window.location.search).replace("/" + window.location.pathname.split("/")[1] + "/","")
       document.getElementById('windowPortal').src = "https://3pd9xoiuya.execute-api.us-west-2.amazonaws.com/default/latinDictServer" + parameterList
       
-      function updateTitle() {
-        
+      var titleFirst = "Latin Dictionary";
+      const urlParams = new URLSearchParams(window.location.search);
+      
+      if (parameterList === "") {
+        document.title = "Home - " + titleFirst;
+      } else if (urlParams.get("q") !== null) {
+        document.title = urlParams.get('q') + " - " + titleFirst;
+      } else if (urlParams.get("t") !== null) {
+        //http://athdot.tk/latin/dict?t=noun&w=magnus
+        document.title = urlParams.get('w') + " - " + titleFirst;
       }
     </script>
   </body>
