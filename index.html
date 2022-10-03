@@ -2,9 +2,19 @@
 <html>
   <body>
     <!-- Export to AWS API Serverless Instance -->
-    <object data="https://3pd9xoiuya.execute-api.us-west-2.amazonaws.com/default/latinDictServer"
+    <object id="windowPortal" data="https://3pd9xoiuya.execute-api.us-west-2.amazonaws.com/default/latinDictServer"
       style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh;"
       type="text/html">
      </object>
+    <script>
+      var windowPortal = document.getElementById("windowPortal");
+      
+      window.addEventListener("message", (event) => {
+        if (event.origin !== windowPortal.data)
+          return;
+
+        alert("I got a message!");
+      }, false);
+    </script>
   </body>
 </html>
