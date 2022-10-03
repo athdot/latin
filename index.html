@@ -7,7 +7,7 @@
       type="text/html">
      </object>
     <script>
-      val parameterList = (window.location.pathname + window.location.search).replace("/" + window.location.pathname.split("/")[1] + "/","")
+      let parameterList = (window.location.pathname + window.location.search).replace("/" + window.location.pathname.split("/")[1] + "/","")
       document.getElementById('windowPortal').data = "https://3pd9xoiuya.execute-api.us-west-2.amazonaws.com/default/latinDictServer" + parameterList
     </script>
   </body>
