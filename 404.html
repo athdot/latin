@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Latin Dictionary</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+  </head>
+  <body>
+    <!-- Export to AWS API Serverless Instance -->
+    <iframe id="windowPortal"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; border:0;">
+     </iframe>
+    <script>
+      let parameterList = (window.location.pathname + window.location.search).replace("/" + window.location.pathname.split("/")[1] + "/","")
+      document.getElementById('windowPortal').src = "https://3pd9xoiuya.execute-api.us-west-2.amazonaws.com/default/latinDictServer" + parameterList
+      
+      var titleFirst = "Latin Dictionary";
+      const urlParams = new URLSearchParams(window.location.search);
+      
+      if (parameterList === "") {
+        document.title = "Home - " + titleFirst;
+      } else if (urlParams.get("q") !== null) {
+        document.title = urlParams.get('q') + " - " + titleFirst;
+      } else if (urlParams.get("t") !== null) {
+        //http://athdot.tk/latin/dict?t=noun&w=magnus
+        document.title = urlParams.get('w') + " - " + titleFirst;
+      }
+    </script>
+  </body>
+</html>
