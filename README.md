@@ -2,7 +2,7 @@
 A dictionary and explorer of latin vocab, centered around Wheelock Latin's textbook
 
 ## Link structure
-ttp://athdot.tk/latin/ <-- Home page, with entire dictionary list with hyperlinks, can organize by chapter, alphabet, declension...
+http://athdot.tk/latin/ <-- Home page, with entire dictionary list with hyperlinks, can organize by chapter, alphabet, declension...
 
 http://athdot.tk/latin/?q=stuff <-- Searching for content
 
