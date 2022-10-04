@@ -3,6 +3,18 @@
   <head>
     <title>Home - Latin Dictionary</title>
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-    <link rel="import" href="404.html">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
+  <body>
+    <div data-include="404"></div>
+    <script>
+      $(function () {
+        var includes = $('[data-include]')
+        $.each(includes, function () {
+          var file = 'views/' + $(this).data('include') + '.html'
+          $(this).load(file)
+        })
+      })
+    </script>
+  </body>
 </html>
