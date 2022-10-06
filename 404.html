@@ -17,12 +17,12 @@
       const urlParams = new URLSearchParams(window.location.search);
       
       if (parameterList === "") {
-        document.title = "Home - " + titleFirst;
+        document.title = "Domus (Home) - " + titleFirst;
       } else if (urlParams.get("q") !== null) {
         document.title = urlParams.get('q') + " - " + titleFirst;
       } else if (urlParams.get("t") !== null) {
-        //http://athdot.tk/latin/dict?t=noun&w=magnus
-        document.title = urlParams.get('w') + " - " + titleFirst;
+        //https://athdot.tk/latin/data/?t=vocab&c=enclitic&n=-que
+        document.title = urlParams.get('n') + " - " + titleFirst;
       }
     </script>
   </body>
